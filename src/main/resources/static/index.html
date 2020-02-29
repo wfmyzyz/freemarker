@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>springboot整合项目自动生成</title>
+    <script src="jq/jquery-3.4.1.js"></script>
+</head>
+<body>
+    <div>
+        <h3>自动生成</h3>
+        <div>
+            <label for="packageName">包名</label>
+            <input id="packageName" type="text">
+            <label for="projectName">项目名</label>
+            <input id="projectName" type="text">
+            <button id="upload-btn">提交</button>
+            <a href="" title="点击下载" target="_blank" id="down-btn">点击下载</a>
+        </div>
+    </div>
+    <script>
+        $("#upload-btn").click(function () {
+            console.log(1)
+            if ($.trim($("#packageName").val()) == "" || $.trim($("#projectName").val()) == ""){
+                return
+            }
+            console.log(12)
+            $.ajax({
+                url: "/springboot/download",
+                type: "post",
+                data: {name: $("#projectName").val(),packageName: $("#packageName").val()},
+                success: function (result) {
+                    if (result != "500"){
+                        $("#down-btn").attr("href",result);
+                    }
+                }
+            })
+        })
+    </script>
+</body>
+</html>

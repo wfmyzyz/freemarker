@@ -1,0 +1,14 @@
+server:
+  port: 8089
+download:
+  url: https://start.spring.io/starter.zip
+  #rootpath: F://project/static/
+  #rootpath: /home/static/
+  #savepath: /home/work/zip/
+  #savepath: F://home/work/zip/
+logging:
+  file:
+    path: /home/log
+spring:
+  profiles:
+    active: window
