@@ -85,8 +85,8 @@ public class FreeMarkerUtils {
         File domain = new File(projectIntoRoot+"domain");
         domain.mkdirs();
         //创建enums目录
-        /*File enums = new File(projectIntoRoot+"enums");
-        enums.mkdirs();*/
+        File enums = new File(projectRoot+"enums");
+        enums.mkdirs();
         //创建mapper目录
         File mapper = new File(projectIntoRoot+"mapper/xml");
         mapper.mkdirs();
@@ -117,15 +117,12 @@ public class FreeMarkerUtils {
         //创建RequestUtils.java
         String requestUtilsPath = projectRoot +"utils/RequestUtils.java";
         createFile(javaFtlPath,requestUtilsPath,"requestUtils.ftl",utilsMap);
-        //创建DbEnums.java
-//        String enumPath = projectRoot +name+"/enums/DbEnums.java";
-//        createFile(javaFtlPath,enumPath,"dbEnums.ftl",utilsMap);
-        //创建FreeMarkerUtils.java
-//        String freeMarkerUtilsPath = projectRoot +"utils/FreeMarkerUtils.java";
-//        createFile(javaFtlPath,freeMarkerUtilsPath,"freeMarkerUtils.ftl",utilsMap);
-        //创建DataBaseUtils.java
-//        String dataBaseUtilPath = projectRoot +"utils/DatabaseUtils.java";
-//        createFile(javaFtlPath,dataBaseUtilPath,"databaseUtils.ftl",utilsMap);
+        //创建DatetimeUtils.java
+        String datetimeUtilsPath = projectRoot +"utils/DatetimeUtils.java";
+        createFile(javaFtlPath,datetimeUtilsPath,"datetimeUtils.ftl",utilsMap);
+        //创建responseEnums.java
+        String enumPath = projectRoot +"enums/ResponseEnum.java";
+        createFile(javaFtlPath,enumPath,"responseEnum.ftl",utilsMap);
         //创建AutoCodeBuild.java
         String autoCodeBuildPath = projectRoot +"utils/AutoCodeBuild.java";
         createFile(javaFtlPath,autoCodeBuildPath,"autoCodeBuild.ftl",utilsMap);
