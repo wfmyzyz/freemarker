@@ -4,27 +4,24 @@ package ${packageName}.enums;
 * @author auto
 */
 public enum  ResponseEnum {
+
     /**
-    * 成功
+    * API调用
     */
-    SUCCESS(200,"成功"),
+    API_ERROR(210,"服务调用异常！"),
+
     /**
-    * 失败
+    * 通用
     */
-    FAIL(0,"失败"),
-    /**
-    * 需要登录
-    */
-    LOGIN(206,"请登录"),
-    /**
-    * 没有权限
-    */
-    POWER(208,"没有权限");
+    SUCCESS(200,"成功！"),
+    FAIL(0,"失败！"),
+    LOGIN(206,"请登录！"),
+    NONE_AUTHORITY(208,"没有权限！");
 
     private final int code;
     private final String msg;
 
-    ResponseEnum(int code,String msg){
+    ProjectResEnum(int code, String msg){
         this.code = code;
         this.msg = msg;
     }

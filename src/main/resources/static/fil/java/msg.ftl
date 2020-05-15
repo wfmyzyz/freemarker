@@ -13,7 +13,7 @@ import java.util.Map;
 public class Msg {
     private int code;
     private String msg;
-    private Map<String,Object> map = new HashMap<>();
+    private Map<String,Object> data = new HashMap<>();
 
     public int getCode() {
         return code;
@@ -31,52 +31,72 @@ public class Msg {
         this.msg = msg;
     }
 
-    public Map<String, Object> getMap() {
-        return map;
+    public Map<String, Object> getData() {
+        return data;
     }
 
-    public void setMap(Map<String, Object> map) {
-        this.map = map;
+    public void setData(Map<String, Object> data) {
+        this.data = data;
     }
 
     public static Msg success(){
-        return success(ResponseEnum.SUCCESS.getMsg());
+        return success(ProjectResEnum.SUCCESS.getMsg());
     }
+
 
     public static Msg success(String message){
         Msg msg = new Msg();
-        msg.setCode(ResponseEnum.SUCCESS.getCode());
+        msg.setCode(ProjectResEnum.SUCCESS.getCode());
         msg.setMsg(message);
+        return msg;
+    }
+
+    public static Msg success(ProjectResEnum projectResEnum){
+        Msg msg = new Msg();
+        msg.setCode(projectResEnum.getCode());
+        msg.setMsg(projectResEnum.getMsg());
         return msg;
     }
 
     public static Msg error(){
-        return error(ResponseEnum.FAIL.getMsg());
+        return error(ProjectResEnum.FAIL.getMsg());
     }
 
     public static Msg error(String message){
         Msg msg = new Msg();
-        msg.setCode(ResponseEnum.FAIL.getCode());
+        msg.setCode(ProjectResEnum.FAIL.getCode());
         msg.setMsg(message);
         return msg;
     }
 
+    public static Msg error(ProjectResEnum projectResEnum){
+        Msg msg = new Msg();
+        msg.setCode(projectResEnum.getCode());
+        msg.setMsg(projectResEnum.getMsg());
+        return msg;
+    }
+
     public Msg add(String key,Object value){
-        map.put(key,value);
+        data.put(key,value);
+        return this;
+    }
+
+    public Msg add(Object value){
+        data.put(ProjectConfig.RESPONSE_DATA,value);
         return this;
     }
 
     public static Msg needLogin(){
         Msg msg = new Msg();
-        msg.setCode(ResponseEnum.LOGIN.getCode());
-        msg.setMsg(ResponseEnum.LOGIN.getMsg());
+        msg.setCode(ProjectResEnum.LOGIN.getCode());
+        msg.setMsg(ProjectResEnum.LOGIN.getMsg());
         return msg;
     }
 
     public static Msg noPower(){
         Msg msg = new Msg();
-        msg.setCode(ResponseEnum.POWER.getCode());
-        msg.setMsg(ResponseEnum.POWER.getMsg());
+        msg.setCode(ProjectResEnum.NONE_AUTHORITY.getCode());
+        msg.setMsg(ProjectResEnum.NONE_AUTHORITY.getMsg());
         return msg;
     }
 
@@ -87,9 +107,9 @@ public class Msg {
     public static void needLogin(HttpServletResponse response){
         String resultText = JSONObject.toJSONString(needLogin());
         try {
-            response.getWriter().println(resultText);
+        response.getWriter().println(resultText);
         } catch (IOException e) {
-            e.printStackTrace();
+        e.printStackTrace();
         }
     }
 
@@ -99,9 +119,9 @@ public class Msg {
     public static void noPower(HttpServletResponse response){
         String resultText = JSONObject.toJSONString(noPower());
         try {
-            response.getWriter().println(resultText);
+        response.getWriter().println(resultText);
         } catch (IOException e) {
-            e.printStackTrace();
+        e.printStackTrace();
         }
     }
 
@@ -118,7 +138,7 @@ public class Msg {
         return "Msg{" +
         "code=" + code +
         ", msg='" + msg + '\'' +
-        ", map=" + map +
+        ", data=" + data +
         '}';
     }
 

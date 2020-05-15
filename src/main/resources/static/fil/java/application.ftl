@@ -19,7 +19,7 @@ spring:
     name: support
   datasource:
     name: test
-    url: jdbc:mysql://localhost:3306/${projectName}?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=UTC&allowMultiQueries=true
+    url: jdbc:mysql://localhost:3306/${projectName}?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=Asia/Shanghai&allowMultiQueries=true
     username: root
     password: root
     type: com.alibaba.druid.pool.DruidDataSource

@@ -70,6 +70,6 @@ public class ControllerAopInterceptor {
         // 执行目标方法
         Object result = pjp.proceed();
         logger.info("返回| 请求接口:{}| 方法 :{} | 请求时间:{} | 处理时间:{} 毫秒 | 返回结果 :{}", requestURL, methodName, start, (System.currentTimeMillis() - start), result);
-        return request;
+        return result;
     }
 }

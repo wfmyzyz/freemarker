@@ -121,8 +121,8 @@ public class FreeMarkerUtils {
         String datetimeUtilsPath = projectRoot +"utils/DatetimeUtils.java";
         createFile(javaFtlPath,datetimeUtilsPath,"datetimeUtils.ftl",utilsMap);
         //创建responseEnums.java
-        String enumPath = projectRoot +"enums/ResponseEnum.java";
-        createFile(javaFtlPath,enumPath,"responseEnum.ftl",utilsMap);
+        String enumPath = projectRoot +"enums/ProjectResEnum.java";
+        createFile(javaFtlPath,enumPath,"projectResEnum.ftl",utilsMap);
         //创建AutoCodeBuild.java
         String autoCodeBuildPath = projectRoot +"utils/AutoCodeBuild.java";
         createFile(javaFtlPath,autoCodeBuildPath,"autoCodeBuild.ftl",utilsMap);
@@ -132,6 +132,9 @@ public class FreeMarkerUtils {
         //WebAppConfig.java
         String webAppConfigPath = projectRoot +"config/WebAppConfig.java";
         createFile(javaFtlPath,webAppConfigPath,"webAppConfig.ftl",utilsMap);
+        //MybatisPlusConfig.java
+        String mybatisPlusConfigPath = projectRoot +"config/MybatisPlusConfig.java";
+        createFile(javaFtlPath,mybatisPlusConfigPath,"mybatisPlusConfig.ftl",utilsMap);
         //SwaggerConfig.java
         String SwaggerConfigPath = projectRoot +"config/SwaggerConfig.java";
         createFile(javaFtlPath,SwaggerConfigPath,"swaggerConfig.ftl",utilsMap);
